@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        padding:40px;
+    }
+    #main{
+        background-color:rgb(207, 211, 212);
+        font-size: 25pt;
+        width:40vw;
+        height:80vh;
+        border: 6px solid rgb(7, 7, 10);
+        padding:20px;
+        border-radius: 40px;
+    }
+    button{
+        display: block;
+        padding:5px;
+        padding-right:20px;
+        margin: 30px;
+        font-size: 30pt;
+    }
+    #b2{
+        display:none;
+    }
+    #q2{
+        display: none;
+    }
+    #q3{
+        display: none;
+    }
+    #b3{
+        display:none;
+    }   
+    #h{
+        display: flex;
+        justify-content: space-between;
+    }
+    #time1{
+        background-color:rgb(193, 240, 249);
+        width:5vw;
+        height:10vh;
+        border: 2px solid rgb(72, 5, 135);
+        border-radius: 100px;
+        font-size: 50px;
+        padding:5px;
+        color:rgb(8, 7, 7);
+        text-align:center;
+    }
+   
+
+</style>
+
+<body>
+    <div id="main">
+        <div id="h">
+    <h1 style="color:rgb(85, 4, 120);">Quiz</h1>
+    <h1 id="time1"></h1>
+    </div>
+    <div id="q1">
+        <p>1. 5 + 5 x 5 + 5 = ?</p>
+        <input type="radio"name=a value="55"> 55
+        <input type="radio"name=a value="35"> 35
+        <input type="radio"name=a value="75"> 75
+    </div>
+    <div id="q2" disabled="true">
+        <p>2.What is the sum of 130 + 125 + 191 = ?</p>
+        <input type="radio"name=b value="335"> 335
+        <input type="radio"name=b value="446"> 446
+        <input type="radio"name=b value="456"> 456
+    </div>
+    <div id="q3">
+        <p>3.The Product of 82 and 5 is = ?</p>
+        <input type="radio"name=c value="400"> 400
+        <input type="radio"name=c value="420"> 420
+        <input type="radio"name=c value="410"> 410
+    </div>
+    <div id="button">
+    <button id="b1" onclick="handlenext('qn')">Next</button>
+    <button id="b3">Submit</button>
+   
+    </div>
+    </div>
+    <script>
+      let aDiv=document.getElementById("q1")
+      let bDiv=document.getElementById("q2")
+      let cDiv=document.getElementById("q3")
+      let but1=document.getElementById("b1")
+      let but2=document.getElementById("b2")
+      let but3=document.getElementById("b3")
+      let qn=1;
+      let time=0;
+      timer()
+      function timer(){
+      let interval=setInterval(()=>{
+        if(time==10)
+       {
+        clearInterval(interval)
+        handlenext('qn')
+       }
+       else
+        time++;
+        document.getElementById("time1").innerHTML=time
+      },1000)
+    }
+      function handlenext(a){
+        time=0;
+        timer()
+        qn++;
+        if(qn==1){
+            bDiv.style.display="none"
+            cDiv.style.display="none"
+            aDiv.style.display="block"
+            but1.style.display="block"
+            but2.style.display="none"
+            but3.style.display="none"
+        }
+        else if(qn==2){
+            aDiv.style.display="none"
+            cDiv.style.display="none"
+            bDiv.style.display="block"
+            but1.style.display="block"
+            but2.style.display="block"
+            but3.style.display="none"
+        }
+        else if(qn==3){
+            aDiv.style.display="none"
+            bDiv.style.display="none"
+            cDiv.style.display="block"
+            but1.style.display="none"
+            but3.style.display="block"
+            
+        }  
+      }
+    function handleprevious(a){
+        time=0;
+        timer()
+    qn--
+    if(qn==1){
+        bDiv.style.display="none"
+        cDiv.style.display="none"
+        aDiv.style.display="block"
+        but1.style.display="block"
+        but2.style.display="none"
+        but3.style.display="none"
+    }
+    else if(qn==2){
+        aDiv.style.display="none"
+        cDiv.style.display="none"
+        bDiv.style.display="block"
+        but1.style.display="block"
+        but2.style.display="block"
+        but3.style.display="none"
+   }
+    else if(qn==3){
+        aDiv.style.display="none"
+        bDiv.style.display="none"
+        cDiv.style.display="block"
+        but2.style.display="block"
+        but1.style.display="none"
+        but3.style.display="block"
+    }
+ }
+
+</script>
+    
+</body>
+</html>
