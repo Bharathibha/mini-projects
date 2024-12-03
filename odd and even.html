@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" /><br><br>
+    <input type="text" /><br><br>
+    <input type="text" /><br><br>
+    <input type="text" /><br><br>
+    <input type="text" /><br><br>
+    <input type="text" /><br><br>
+    <input type="text" /><br><br>
+    <input type="text" />
+
+    <script>
+        for(let i=0;i<=8;i++){
+     if(i%2==0){
+        console.log(document.getElementsByTagName("input")[i].placeholder="odd")
+        document.getElementsByTagName("input")[i].style.backgroundColor="pink" 
+    }
+     else
+     {
+        console.log(document.getElementsByTagName("input")[i].placeholder="Even")  
+     }
+        }
+    </script>
+</body>
+</html>
